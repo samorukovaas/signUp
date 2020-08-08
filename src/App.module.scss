@@ -1,0 +1,22 @@
+@import './styles/breakpoints.scss';
+
+.App {
+  width: 100%;
+}
+
+.appContainer {
+  padding: 0 50px;
+  flex-grow: 1;
+}
+
+@include md {
+  .appContainer {
+    padding: 0 30px;
+  }
+}
+
+@include sm {
+  .appContainer {
+    padding: 0 20px;
+  }
+}

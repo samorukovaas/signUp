@@ -1,0 +1,124 @@
+@import "../../styles/Colors.scss";
+@import "../../styles/Fonts.scss";
+@import "../../styles/theme.scss";
+@import "../../styles/breakpoints.scss";
+
+h3 {
+  @include RobotoLightH3;
+  @include color("text-primary");
+  margin-top: 60px;
+}
+
+h6 {
+  @include RobotoLightH6;
+  @include color("text-primary");
+  margin: 10px 0 50px;
+}
+
+.button {
+  height: 64px;
+  max-width: 180px;
+  width: 100%;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+  @include sm {
+    max-width: 120px;
+  }
+}
+
+.googleButton {
+  composes: button;
+  margin-top: 10px;
+
+  @include sm {
+    max-width: 160px;
+  }
+}
+
+.inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+  .spinner {
+    height: calc(100% + 50px);
+    position: absolute;
+    z-index: 500;
+    top: 0;
+    @include background-color("background-paper");
+  }
+
+  .group {
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .inputGroup {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .codeInputGroup {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .formControl {
+      max-width: 680px;
+      display: flex;
+      flex-grow: 1;
+      flex-flow: nowrap;
+    }
+
+    .label {
+      padding-top: 4px;
+    }
+    .labelFocused {
+      padding-top: 0;
+    }
+
+    .input {
+      width: 100%;
+      max-width: 500px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+
+      input {
+        height: 64px;
+        box-sizing: border-box;
+      }
+    }
+
+    .helper {
+      width: 100%;
+      max-width: 680px;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      box-sizing: border-box;
+      font-size: 12px;
+      @include color("text-secondary");
+      text-transform: uppercase;
+
+      @include sm {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .text {
+        @include sm {
+          margin: 30px 0 20px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+@import './Colors.scss';
+
+$themes: (
+  'light': (
+    'primary': $primary500,
+    'secondary': $secondary400,
+    'primary200': $primary200,
+    'secondary200': $secondary200,
+    'background-default': $backgroundDefault,
+    'background-paper': $backgroundPaper,
+    'text-primary': $textPrimary,
+    'text-primary-inverted': $textPrimaryDark,
+    'text-secondary': $textSecondary,
+    'text-secondary-inverted': $textSecondaryDark,
+    'text-disabled': $textDisabled,
+  ),
+  'dark': (
+    'primary': $primary800,
+    'secondary': $secondaryDark,
+    'primary200': $primary700,
+    'secondary200': $secondary200Dark,
+    'background-default': $backgroundDefaultDark,
+    'background-paper': $backgroundPaperDark,
+    'text-primary': $textPrimaryDark,
+    'text-primary-inverted': $textPrimary,
+    'text-secondary': $textSecondaryDark,
+    'text-secondary-inverted': $textSecondary,
+    'text-disabled': $textDisabledDark,
+  ),
+) !default;
+
+$default-theme: 'light';
+
+@mixin themify($property, $key, $themes: $themes) {
+  @each $theme, $color-map in $themes {
+    $default-map: map-get($themes, $default-theme);
+    $value: map-get($color-map, $key) or map-get($default-map, $key);
+    @if $value {
+      :global(.theme-#{$theme}) & {
+        #{$property}: $value;
+      }
+    }
+  }
+}
+
+@mixin font-family($key) {
+  @include themify('font-family', $key);
+}
+
+@mixin background-color($key) {
+  @include themify('background-color', $key);
+}
+
+@mixin background($key) {
+  @include themify('background', $key);
+}
+
+@mixin color($key) {
+  @include themify('color', $key);
+}
